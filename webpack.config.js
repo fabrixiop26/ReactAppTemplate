@@ -11,7 +11,8 @@ module.exports = {
       port: 8001,
       open: true,
       contentBase: path.resolve(__dirname, 'dist'),
-      clientLogLevel: 'silent'
+      clientLogLevel: 'silent',
+      hot: true
    },
    module: {
       rules: [
