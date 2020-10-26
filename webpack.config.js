@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
 
 module.exports = {
    entry: './index.js',
@@ -20,12 +21,18 @@ module.exports = {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
+         },
+         {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            use: ["style-loader","css-loader"]
          }
       ]
    },
    plugins:[
       new HtmlWebpackPlugin({
          template: './public/index.html'
-      })
+      }),
+      new webpack.HotModuleReplacementPlugin()
    ]
 }
